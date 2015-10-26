@@ -5,7 +5,7 @@ import com.huntdreams.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -37,4 +37,25 @@ public class MainController {
         return "usermanage";
     }
 
+    // 添加用户 页面
+    @RequestMapping(value = "/addUser", method = RequestMethod.GET)
+    public String addUser() {
+        return "addUser";
+    }
+
+    // 添加用户 处理
+    @RequestMapping(value = "/addUserPost", method = RequestMethod.POST)
+    public String addUserPost(@ModelAttribute("user") UserEntity userEntity) {
+
+        // 数据库中添加一个用户
+        //userRepository.save(userEntity);
+
+
+        // 数据库中添加一个用户，并立即刷新
+        userRepository.saveAndFlush(userEntity);
+
+
+        // 返回重定向 到 /users 请求
+        return "redirect:/users";
+    }
 }
