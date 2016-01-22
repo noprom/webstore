@@ -29,6 +29,7 @@
 </section>
 <section class="container">
     <div class="row">
+        <c:forEach items="${products}" var="product">
         <div class="col-sm-6 col-md-3" style="padding-bottom: 15px">
             <div class="thumbnail">
                 <div class="caption">
@@ -39,6 +40,7 @@
                 </div>
             </div>
         </div>
+        </c:forEach>
     </div>
 </section>
 <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->

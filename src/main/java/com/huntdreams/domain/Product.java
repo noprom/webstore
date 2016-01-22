@@ -10,7 +10,7 @@ public class Product {
     private String name;
     private BigDecimal unitPrice;
     private String description;
-    private String manufacture;
+    private String manufacturer;
     private String category;
     private long unitsInStock;
     private long unitsInOrder;
@@ -86,12 +86,20 @@ public class Product {
         this.description = description;
     }
 
-    public String getManufacture() {
-        return manufacture;
+    public String getProductId() {
+        return productId;
     }
 
-    public void setManufacture(String manufacture) {
-        this.manufacture = manufacture;
+    public void setProductId(String productId) {
+        this.productId = productId;
+    }
+
+    public String getManufacturer() {
+        return manufacturer;
+    }
+
+    public void setManufacturer(String manufacturer) {
+        this.manufacturer = manufacturer;
     }
 
     public String getCategory() {
