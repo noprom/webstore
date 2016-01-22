@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
  * Created by noprom on 1/22/16.
  */
 @Service
-public class OrderServiceImpl implements OrderService{
+public class OrderServiceImpl implements OrderService {
 
     @Autowired
     private ProductRepository productRepository;

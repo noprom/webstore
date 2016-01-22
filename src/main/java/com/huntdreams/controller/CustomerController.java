@@ -1,6 +1,7 @@
 package com.huntdreams.controller;
 
 import com.huntdreams.domain.repository.ProductRepository;
+import com.huntdreams.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,14 +13,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * Created by noprom on 1/22/16.
  */
 @Controller
-public class ProductController {
+public class CustomerController {
 
     @Autowired
-    private ProductRepository productRepository;
+    private CustomerService customerService;
 
-    @RequestMapping(value = "/products", method = RequestMethod.GET)
+    @RequestMapping(value = "/customers", method = RequestMethod.GET)
     public String list(Model model) {
-        model.addAttribute("products", productRepository.getAllProducts());
-        return "products";
+        model.addAttribute("customers", customerService.getAllCustomers());
+        return "customers";
     }
 }
