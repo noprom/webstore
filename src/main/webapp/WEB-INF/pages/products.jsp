@@ -1,4 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -17,15 +19,28 @@
     <![endif]-->
 </head>
 <body>
-
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <h1>这里是SpringMVC Demo首页</h1>
-            <h3>出现此页面，说明配置成功。</h3>
+<section>
+    <div class="jumbotron">
+        <div class="container">
+            <h1>商品</h1>
+            <p>所有商品</p>
         </div>
     </div>
-</div>
+</section>
+<section class="container">
+    <div class="row">
+        <div class="col-sm-6 col-md-3" style="padding-bottom: 15px">
+            <div class="thumbnail">
+                <div class="caption">
+                    <h3>${product.name}</h3>
+                    <p>${product.description}</p>
+                    <p>${product.unitPrice} USD</p>
+                    <p>Available ${product.unitsInStock} units in stock</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
 <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
