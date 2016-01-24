@@ -59,7 +59,7 @@ public class ProductController {
             @MatrixVariable(pathVar = "price") Map<String, List<String>> filterParams,
             @RequestParam("manufacture") String manufacture,
             Model model) {
-
-
+        model.addAttribute("product", productService.filterProducts(category, manufacture, filterParams));
+        return "products";
     }
 }
