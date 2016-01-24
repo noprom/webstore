@@ -1,25 +1,31 @@
 package com.huntdreams.controller;
 
-import com.huntdreams.domain.repository.ProductRepository;
+import com.huntdreams.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 
 /**
  * Created by noprom on 1/22/16.
  */
 @Controller
+@RequestMapping("/products")
 public class ProductController {
 
     @Autowired
-    private ProductRepository productRepository;
+    private ProductService productService;
 
-    @RequestMapping(value = "/products", method = RequestMethod.GET)
+    @RequestMapping
     public String list(Model model) {
-        model.addAttribute("products", productRepository.getAllProducts());
+        model.addAttribute("products", productService.getAllProducts());
+        return "products";
+    }
+
+    @RequestMapping("/all")
+    public String allProducts(Model model) {
+        model.addAttribute("products", productService.getAllProducts());
         return "products";
     }
 }

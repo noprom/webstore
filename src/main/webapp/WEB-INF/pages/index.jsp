@@ -21,8 +21,8 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <h1>这里是SpringMVC Demo首页</h1>
-            <h3>出现此页面，说明配置成功。</h3>
+            <h1>欢迎来到网上商城</h1>
+            <h3>Powered by SpringMVC</h3>
         </div>
     </div>
 </div>
