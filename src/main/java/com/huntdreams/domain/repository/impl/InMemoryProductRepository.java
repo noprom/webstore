@@ -57,6 +57,16 @@ public class InMemoryProductRepository implements ProductRepository {
         return productsByCategory;
     }
 
+    public List<Product> getProductsByManufacturer(String manufacturer) {
+        List<Product> productsByManufacturer = new ArrayList<Product>();
+        for (Product product : listOfProducts) {
+            if (product.getManufacturer().equals(manufacturer)) {
+                productsByManufacturer.add(product);
+            }
+        }
+        return productsByManufacturer;
+    }
+
     public Product getProductById(String productId) {
         Product productById = null;
         for (Product product : listOfProducts) {
@@ -93,5 +103,23 @@ public class InMemoryProductRepository implements ProductRepository {
         }
         productsByCategory.retainAll(productsByBrand);
         return productsByCategory;
+    }
+
+    public Set<Product> filterProducts(String category, String manufacture, Map<String, List<String>> filterParams) {
+        Set<Product> results = new HashSet<Product>();
+        Set<String> params = filterParams.keySet();
+        for (Product product : listOfProducts) {
+            if (category.equalsIgnoreCase(product.getCategory()) &&
+                    manufacture.equalsIgnoreCase(product.getManufacturer())) {
+                if (params.contains("min")) {
+                    BigDecimal minprice = new BigDecimal(filterParams.get("low").get(0));
+                    BigDecimal maxprice = new BigDecimal(filterParams.get("high").get(0));
+                    if (minprice.compareTo(product.getUnitPrice()) < 0 &&
+                            maxprice.compareTo(product.getUnitPrice()) > 0)
+                        results.add(product);
+                }
+            }
+        }
+        return results;
     }
 }

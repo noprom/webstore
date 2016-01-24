@@ -1,7 +1,6 @@
 package com.huntdreams.controller;
 
 import com.huntdreams.service.ProductService;
-import com.sun.tools.corba.se.idl.StringGen;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -52,5 +51,15 @@ public class ProductController {
     public String getProductById(@RequestParam("id") String productId, Model model) {
         model.addAttribute("product", productService.getProductById(productId));
         return "product";
+    }
+
+    @RequestMapping("/{category}/{price}")
+    public String filterProducts(
+            @PathVariable("category") String category,
+            @MatrixVariable(pathVar = "price") Map<String, List<String>> filterParams,
+            @RequestParam("manufacture") String manufacture,
+            Model model) {
+
+
     }
 }

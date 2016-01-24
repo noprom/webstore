@@ -13,6 +13,8 @@ import java.util.Set;
 public interface ProductService {
     List<Product> getAllProducts();
     List<Product> getProductsByCategory(String category);
+    List<Product> getProductsByManufacturer(String manufacturer);
     Set<Product> getProductsByFilter(Map<String, List<String>> filterParams);
+    Set<Product> filterProducts(String category, String manufacture, Map<String, List<String>> filterParams);
     Product getProductById(String productID);
 }
