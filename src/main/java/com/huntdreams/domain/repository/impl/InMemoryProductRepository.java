@@ -27,14 +27,14 @@ public class InMemoryProductRepository implements ProductRepository {
         Product laptop_dell = new Product("P1235","Dell Inspiron", new
                 BigDecimal(700));
         laptop_dell.setDescription("Dell Inspiron 14-inch Laptop (Black) with 3rd Generation Intel Core processors");
-                laptop_dell.setCategory("Laptop");
+                laptop_dell.setCategory("laptop");
         laptop_dell.setManufacturer("Dell");
         laptop_dell.setUnitsInStock(1000);
 
         Product tablet_Nexus = new Product("P1236","Nexus 7", new
                 BigDecimal(300));
         tablet_Nexus.setDescription("Google Nexus 7 is the lightest 7 inch tablet With a quad-core Qualcomm SnapdragonTM S4 Pro processor");
-                tablet_Nexus.setCategory("Tablet");
+                tablet_Nexus.setCategory("tablet");
 
         tablet_Nexus.setManufacturer("Google");
         tablet_Nexus.setUnitsInStock(1000);
@@ -46,6 +46,16 @@ public class InMemoryProductRepository implements ProductRepository {
 
     public List<Product> getAllProducts() {
         return listOfProducts;
+    }
+
+    public List<Product> getProductsByCategory(String category) {
+        List<Product> productsByCategory = new ArrayList<Product>();
+        for (Product product : listOfProducts) {
+            if (product.getCategory().equals(category)) {
+                productsByCategory.add(product);
+            }
+        }
+        return productsByCategory;
     }
 
     public Product getProductById(String productId) {
