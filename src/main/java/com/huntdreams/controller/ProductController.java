@@ -40,7 +40,7 @@ public class ProductController {
     public void initBinder(WebDataBinder binder) {
         binder.setDisallowedFields("unitsInOrder", "discontinued");
         binder.setAllowedFields("productId", "name", "unitPrice", "description",
-                "manufacturer", "category", "unitInStock", "productImage");
+                "manufacturer", "category", "unitInStock", "productImage", "language");
     }
 
     /**

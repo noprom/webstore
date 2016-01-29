@@ -29,6 +29,9 @@
             <h1>商品</h1>
             <p>新增商品</p>
         </div>
+        <div class="pull-right" style="padding-right:50px">
+            <a href="?language=en" >English</a>|<a href="?language=zh" >中文</a>
+        </div>
     </div>
 </section>
 <section class="container">
@@ -44,31 +47,41 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="name" class="control-label col-lg-2">商品名</label>
+                <label for="name" class="control-label col-lg-2">
+                    <spring:message code="addProduct.form.name.label"/>
+                </label>
                 <div class="col-lg-4">
                     <form:input path="name" id="name" type="text" class="form-control"/>
                 </div>
             </div>
             <div class="form-group">
-                <label for="unitPrice" class="control-label col-lg-2">价格</label>
+                <label for="unitPrice" class="control-label col-lg-2">
+                    <spring:message code="addProduct.form.unitPrice.label"/>
+                </label>
                 <div class="col-lg-4">
                     <form:input path="unitPrice" id="unitPrice" type="text" class="form-control"/>
                 </div>
             </div>
             <div class="form-group">
-                <label for="description" class="control-label col-lg-2">描述</label>
+                <label for="description" class="control-label col-lg-2">
+                    <spring:message code="addProduct.form.description.label"/>
+                </label>
                 <div class="col-lg-4">
                     <form:textarea path="description" id="description" class="form-control" rows="2"/>
                 </div>
             </div>
             <div class="form-group">
-                <label for="manufacturer" class="control-label col-lg-2">制造商</label>
+                <label for="manufacturer" class="control-label col-lg-2">
+                    <spring:message code="addProduct.form.manufacturer.label"/>
+                </label>
                 <div class="col-lg-4">
                     <form:input path="manufacturer" id="manufacturer" type="text" class="form-control"/>
                 </div>
             </div>
             <div class="form-group">
-                <label for="category" class="control-label col-lg-2">分类</label>
+                <label for="category" class="control-label col-lg-2">
+                    <spring:message code="addProduct.form.category.label"/>
+                </label>
                 <div class="col-lg-4">
                     <form:input path="category" id="category" type="text" class="form-control"/>
                 </div>
@@ -77,8 +90,7 @@
                 <label class="control-label col-lg-2" for="productImage">
                     <spring:message code="addProdcut.form.productImage.label"/></label>
                 <div class="col-lg-10">
-                    <form:input id="productImage" path="productImage" type="file"
-                                class="form:input-large" />
+                    <form:input id="productImage" path="productImage" type="file" class="form:input-large" />
                 </div>
             </div>
             <div class="form-group">
