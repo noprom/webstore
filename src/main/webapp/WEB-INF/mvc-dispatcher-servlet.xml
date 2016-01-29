@@ -25,6 +25,12 @@
               <property name="prefix" value="/WEB-INF/pages/"/>
               <property name="suffix" value=".jsp"/>
        </bean>
+
+    <!-- 消息模版-->
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basename" value="messages"/>
+    </bean>
+
         <!--&lt;!&ndash; 表示JPA Repository所在的包 &ndash;&gt;-->
         <!--<jpa:repositories base-package="com.huntdreams.repository"/>-->
 

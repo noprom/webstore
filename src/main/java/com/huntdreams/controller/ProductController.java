@@ -5,6 +5,9 @@ import com.huntdreams.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,6 +23,15 @@ public class ProductController {
 
     @Autowired
     private ProductService productService;
+
+    /**
+     * 新增商品的时候过滤不需要绑定的字段
+     * @param binder
+     */
+    @InitBinder
+    public void initBinder(WebDataBinder binder) {
+        binder.setDisallowedFields("unitsInOrder", "discontinued");
+    }
 
     @RequestMapping
     public String list(Model model) {
@@ -69,7 +81,15 @@ public class ProductController {
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String processAddNewProductForm(@ModelAttribute("newProduct") Product newProduct) {
+    public String processAddNewProductForm(@ModelAttribute("newProduct") Product newProduct,
+                                           BindingResult result) {
+        // 过滤不允许提交的字段
+        String[] suppressedFields = result.getSuppressedFields();
+        if (suppressedFields.length > 0) {
+            throw new RuntimeException("Attemping to bind disabled fields : " +
+                    StringUtils.arrayToCommaDelimitedString(suppressedFields));
+        }
+
         productService.addProduct(newProduct);
         return "redirect:/products";
     }

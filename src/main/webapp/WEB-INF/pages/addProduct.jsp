@@ -1,5 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="sping" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="spring" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!DOCTYPE html>
@@ -35,7 +37,9 @@
         <fieldset>
             <legend>新增商品</legend>
             <div class="form-group">
-                <label for="productId" class="control-label col-lg-2">商品ID</label>
+                <label for="productId" class="control-label col-lg-2">
+                    <spring:message key="addProduct.form.productId.label"/>
+                </label>
                 <div class="col-lg-4">
                     <form:input path="productId" id="productId" type="text" class="form-control"/>
                 </div>
@@ -74,18 +78,6 @@
                 <label for="unitsInStock" class="control-label col-lg-2">unitsInStock</label>
                 <div class="col-lg-4">
                     <form:input path="unitsInStock" id="unitsInStock" type="text" class="form-control"/>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="unitsInOrder" class="control-label col-lg-2">unitsInOrder</label>
-                <div class="col-lg-4">
-                    <form:input path="unitsInOrder" id="unitsInOrder" type="text" class="form-control"/>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="discontinuted" class="control-label col-lg-2">discontinuted</label>
-                <div class="col-lg-4">
-                    <form:checkbox path="discontinuted" id="discontinuted"/>
                 </div>
             </div>
             <div class="form-group">
