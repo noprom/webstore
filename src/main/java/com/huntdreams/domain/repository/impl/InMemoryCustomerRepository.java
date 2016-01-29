@@ -1,6 +1,6 @@
 package com.huntdreams.domain.repository.impl;
 
-import com.huntdreams.domain.repository.Customer;
+import com.huntdreams.domain.Customer;
 import com.huntdreams.domain.repository.CustomerRepository;
 import org.springframework.stereotype.Repository;
 

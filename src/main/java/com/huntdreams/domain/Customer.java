@@ -1,4 +1,4 @@
-package com.huntdreams.domain.repository;
+package com.huntdreams.domain;
 
 /**
  * Created by noprom on 1/22/16.

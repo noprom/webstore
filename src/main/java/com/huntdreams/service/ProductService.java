@@ -11,6 +11,7 @@ import java.util.Set;
  * Created by noprom on 1/24/16.
  */
 public interface ProductService {
+    void addProduct(Product product);
     List<Product> getAllProducts();
     List<Product> getProductsByCategory(String category);
     List<Product> getProductsByManufacturer(String manufacturer);

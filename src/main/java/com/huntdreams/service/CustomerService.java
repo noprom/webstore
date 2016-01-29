@@ -1,6 +1,6 @@
 package com.huntdreams.service;
 
-import com.huntdreams.domain.repository.Customer;
+import com.huntdreams.domain.Customer;
 
 import java.util.List;
 

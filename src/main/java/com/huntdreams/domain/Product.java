@@ -17,6 +17,7 @@ public class Product {
     private boolean discontinuted;
     private String condition;
 
+    public Product() {}
 
     public Product(String productId, String name, BigDecimal unitPrice) {
         this.productId = productId;

@@ -1,6 +1,6 @@
 package com.huntdreams.domain.repository;
 
-import com.huntdreams.domain.Product;
+import com.huntdreams.domain.Customer;
 
 import java.util.List;
 

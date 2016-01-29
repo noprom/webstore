@@ -10,6 +10,7 @@ import java.util.Set;
  * Created by noprom on 1/22/16.
  */
 public interface ProductRepository {
+    void addProduct(Product product);
     List<Product> getAllProducts();
     List<Product> getProductsByCategory(String category);
     List<Product> getProductsByManufacturer(String manufacturer);

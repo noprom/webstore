@@ -20,6 +20,10 @@ public class ProductServiceImpl implements ProductService {
     @Autowired
     private ProductRepository productRepository;
 
+    public void addProduct(Product product) {
+        productRepository.addProduct(product);
+    }
+
     public List<Product> getAllProducts() {
         return productRepository.getAllProducts();
     }
