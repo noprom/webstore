@@ -9,7 +9,11 @@ import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -31,38 +35,76 @@ public class ProductController {
     @InitBinder
     public void initBinder(WebDataBinder binder) {
         binder.setDisallowedFields("unitsInOrder", "discontinued");
+        binder.setAllowedFields("productId", "name", "unitPrice", "description",
+                "manufacturer", "category", "unitInStock", "productImage");
     }
 
+    /**
+     * 商品列表
+     * @param model
+     * @return
+     */
     @RequestMapping
     public String list(Model model) {
         model.addAttribute("products", productService.getAllProducts());
         return "products";
     }
 
+    /**
+     * 所有商品
+     * @param model
+     * @return
+     */
     @RequestMapping("/all")
     public String allProducts(Model model) {
         model.addAttribute("products", productService.getAllProducts());
         return "products";
     }
 
+    /**
+     * 某一分类下的商品
+     * @param model
+     * @param productCategory
+     * @return
+     */
     @RequestMapping("/{category}")
     public String getProductsByCategory(Model model, @PathVariable("category") String productCategory) {
         model.addAttribute("products", productService.getProductsByCategory(productCategory));
         return "products";
     }
 
+    /**
+     * 根据分类查找商品
+     * @param filterParams
+     * @param model
+     * @return
+     */
     @RequestMapping("/filter/{ByCriteria}")
     public String getProductsByFilter(@MatrixVariable(pathVar = "ByCriteria")Map<String, List<String>> filterParams, Model model) {
         model.addAttribute("products", productService.getProductsByFilter(filterParams));
         return "products";
     }
 
+    /**
+     * 商品详情
+     * @param productId
+     * @param model
+     * @return
+     */
     @RequestMapping("product")
     public String getProductById(@RequestParam("id") String productId, Model model) {
         model.addAttribute("product", productService.getProductById(productId));
         return "product";
     }
 
+    /**
+     * 根据分类和价格查找商品
+     * @param category
+     * @param filterParams
+     * @param manufacture
+     * @param model
+     * @return
+     */
     @RequestMapping("/{category}/{price}")
     public String filterProducts(
             @PathVariable("category") String category,
@@ -73,6 +115,11 @@ public class ProductController {
         return "products";
     }
 
+    /**
+     * 新增商品
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String getAddNewProductForm(Model model) {
         Product newProduct = new Product();
@@ -80,9 +127,15 @@ public class ProductController {
         return "addProduct";
     }
 
+    /**
+     * 新增商品提交页面
+     * @param newProduct
+     * @param result
+     * @return
+     */
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String processAddNewProductForm(@ModelAttribute("newProduct") Product newProduct,
-                                           BindingResult result) {
+                                           BindingResult result, HttpServletRequest request) {
         // 过滤不允许提交的字段
         String[] suppressedFields = result.getSuppressedFields();
         if (suppressedFields.length > 0) {
@@ -90,6 +143,16 @@ public class ProductController {
                     StringUtils.arrayToCommaDelimitedString(suppressedFields));
         }
 
+        // 上传图片
+        MultipartFile productImage = newProduct.getProductImage();
+        String rootDir = request.getSession().getServletContext().getRealPath("/");
+        if (productImage != null && !productImage.isEmpty()) {
+            try {
+                productImage.transferTo(new File(rootDir + "/WEB-INF/static/images/" + newProduct.getProductId() + ".png"));
+            } catch (IOException e) {
+                throw new RuntimeException("Product Image saving failed!", e);
+            }
+        }
         productService.addProduct(newProduct);
         return "redirect:/products";
     }

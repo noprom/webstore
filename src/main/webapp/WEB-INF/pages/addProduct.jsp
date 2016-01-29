@@ -1,7 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="sping" uri="http://www.springframework.org/tags" %>
-<%@ taglib prefix="spring" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!DOCTYPE html>
@@ -33,12 +32,12 @@
     </div>
 </section>
 <section class="container">
-    <form:form modelAttribute="newProduct" class="form-horizontal">
+    <form:form modelAttribute="newProduct" class="form-horizontal" enctype="multipart/form-data">
         <fieldset>
             <legend>新增商品</legend>
             <div class="form-group">
                 <label for="productId" class="control-label col-lg-2">
-                    <spring:message key="addProduct.form.productId.label"/>
+                    <spring:message code="addProduct.form.productId.label"/>
                 </label>
                 <div class="col-lg-4">
                     <form:input path="productId" id="productId" type="text" class="form-control"/>
@@ -75,23 +74,11 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="unitsInStock" class="control-label col-lg-2">unitsInStock</label>
-                <div class="col-lg-4">
-                    <form:input path="unitsInStock" id="unitsInStock" type="text" class="form-control"/>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="condition" class="control-label col-lg-2">condition</label>
-                <div class="col-lg-4">
-                    <label class="radio-inline">
-                        <form:radiobutton path="condition" value="New"/>New
-                    </label>
-                        <label class="radio-inline">
-                            <form:radiobutton path="condition" value="Old"/>Old
-                        </label>
-                        <label class="radio-inline">
-                            <form:radiobutton path="condition" value="Refurbished"/>Refurbished
-                        </label>
+                <label class="control-label col-lg-2" for="productImage">
+                    <spring:message code="addProdcut.form.productImage.label"/></label>
+                <div class="col-lg-10">
+                    <form:input id="productImage" path="productImage" type="file"
+                                class="form:input-large" />
                 </div>
             </div>
             <div class="form-group">

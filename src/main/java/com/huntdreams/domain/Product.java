@@ -1,5 +1,7 @@
 package com.huntdreams.domain;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import java.math.BigDecimal;
 
 /**
@@ -8,14 +10,15 @@ import java.math.BigDecimal;
 public class Product {
     private String productId;
     private String name;
-    private BigDecimal unitPrice;
     private String description;
     private String manufacturer;
     private String category;
+    private String condition;
+    private BigDecimal unitPrice;
     private long unitsInStock;
     private long unitsInOrder;
     private boolean discontinuted;
-    private String condition;
+    private MultipartFile productImage;
 
     public Product() {}
 
@@ -142,4 +145,13 @@ public class Product {
     public void setCondition(String condition) {
         this.condition = condition;
     }
+
+    public MultipartFile getProductImage() {
+        return productImage;
+    }
+
+    public void setProductImage(MultipartFile productImage) {
+        this.productImage = productImage;
+    }
+
 }
