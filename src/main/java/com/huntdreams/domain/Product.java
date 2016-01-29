@@ -1,12 +1,16 @@
 package com.huntdreams.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 import java.math.BigDecimal;
 
 /**
  * Created by noprom on 1/22/16.
  */
+@XmlRootElement
 public class Product {
     private String productId;
     private String name;
@@ -18,6 +22,7 @@ public class Product {
     private long unitsInStock;
     private long unitsInOrder;
     private boolean discontinuted;
+    @JsonIgnore
     private MultipartFile productImage;
 
     public Product() {}
@@ -58,7 +63,7 @@ public class Product {
         return "Product [productId=" + productId + ", name=" + name + "]";
     }
 
-    public String getproductId() {
+    public String getProductId() {
         return productId;
     }
 
@@ -88,10 +93,6 @@ public class Product {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public String getProductId() {
-        return productId;
     }
 
     public void setProductId(String productId) {
@@ -146,6 +147,7 @@ public class Product {
         this.condition = condition;
     }
 
+    @XmlTransient
     public MultipartFile getProductImage() {
         return productImage;
     }

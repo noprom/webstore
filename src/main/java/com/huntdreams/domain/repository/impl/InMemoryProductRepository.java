@@ -74,8 +74,8 @@ public class InMemoryProductRepository implements ProductRepository {
     public Product getProductById(String productId) {
         Product productById = null;
         for (Product product : listOfProducts) {
-            if (product != null && product.getproductId() != null
-                    &&product.getproductId().equals(productId)) {
+            if (product != null && product.getProductId() != null
+                    &&product.getProductId().equals(productId)) {
                 productById = product;
                 break;
             }
