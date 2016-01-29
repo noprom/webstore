@@ -9,7 +9,6 @@
     http://www.springframework.org/schema/mvc  
     http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 
-
 	<!-- 视图解释类 -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/pages/" />
@@ -66,6 +65,12 @@
 	
 	<!-- 静态资源映射 -->
 	<mvc:resources mapping="/static/**" location="/WEB-INF/static/"/>
+
+	<!-- 拦截器设置-->
+	<mvc:interceptors>
+		<!-- 执行时间监控器-->
+		<bean class="com.huntdreams.interceptor.PerformanceMonitorInterceptor"/>
+	</mvc:interceptors>
 
 	<!--<mvc:interceptors>-->
 	<!-- -->

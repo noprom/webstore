@@ -2,6 +2,7 @@ package com.huntdreams.domain.repository.impl;
 
 import com.huntdreams.domain.Product;
 import com.huntdreams.domain.repository.ProductRepository;
+import com.huntdreams.exception.ProductNotFoundException;
 import org.springframework.stereotype.Repository;
 
 import java.math.BigDecimal;
@@ -82,7 +83,7 @@ public class InMemoryProductRepository implements ProductRepository {
         }
 
         if (productById == null) {
-            throw new IllegalArgumentException("No product found with the product id : " + productId);
+            throw new ProductNotFoundException("No product found with the product id : " + productId);
         }
         return productById;
     }
