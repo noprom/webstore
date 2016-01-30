@@ -79,6 +79,8 @@
 	<mvc:interceptors>
 		<!-- 执行时间监控器-->
 		<bean class="com.huntdreams.interceptor.PerformanceMonitorInterceptor"/>
+		<!-- 用户操作拦截器-->
+		<bean class="com.huntdreams.interceptor.AuditingInterceptor"/>
 		<!-- 国际化-->
 		<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
 			<property name="paramName" value="language"/>
