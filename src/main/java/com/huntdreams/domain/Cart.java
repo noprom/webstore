@@ -1,5 +1,6 @@
 package com.huntdreams.domain;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
@@ -8,7 +9,7 @@ import java.util.Map;
  * 购物车类
  * Created by noprom on 1/30/16.
  */
-public class Cart {
+public class Cart implements Serializable {
 
     private String cartId;
     private Map<String, CartItem> cartItems;

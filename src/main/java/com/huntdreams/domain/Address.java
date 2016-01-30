@@ -1,10 +1,12 @@
 package com.huntdreams.domain;
 
+import java.io.Serializable;
+
 /**
  * Address实体
  * Created by noprom on 1/30/16.
  */
-public class Address {
+public class Address implements Serializable {
     private String doorNo;//门牌号
     private String streetName;//街道名称
     private String areaName;//地区

@@ -1,12 +1,13 @@
 package com.huntdreams.domain;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
  * 购物车项类
  * Created by noprom on 1/30/16.
  */
-public class CartItem {
+public class CartItem implements Serializable {
 
     private Product product;    // 商品
     private int quantity;       // 数量
