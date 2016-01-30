@@ -4,7 +4,6 @@ import com.huntdreams.domain.Product;
 import com.huntdreams.exception.NoProductsFoundUnderCategoryException;
 import com.huntdreams.exception.ProductNotFoundException;
 import com.huntdreams.service.ProductService;
-import org.apache.http.HttpRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,18 +22,22 @@ import java.util.Map;
 
 
 /**
+ * 商品控制器
  * Created by noprom on 1/22/16.
  */
 @Controller
 @RequestMapping("/products")
 public class ProductController {
 
+    /**
+     * 自动加载ProductService
+     */
     @Autowired
     private ProductService productService;
 
     /**
      * 新增商品的时候过滤不需要绑定的字段
-     * @param binder
+     * @param binder binder
      */
     @InitBinder
     public void initBinder(WebDataBinder binder) {
@@ -45,8 +48,8 @@ public class ProductController {
 
     /**
      * 商品列表
-     * @param model
-     * @return
+     * @param model model
+     * @return 视图
      */
     @RequestMapping
     public String list(Model model) {
@@ -56,8 +59,8 @@ public class ProductController {
 
     /**
      * 所有商品
-     * @param model
-     * @return
+     * @param model model
+     * @return 视图
      */
     @RequestMapping("/all")
     public String allProducts(Model model) {
@@ -67,9 +70,9 @@ public class ProductController {
 
     /**
      * 某一分类下的商品
-     * @param model
-     * @param productCategory
-     * @return
+     * @param model model
+     * @param productCategory 商品分类
+     * @return 视图
      */
     @RequestMapping("/{category}")
     public String getProductsByCategory(Model model, @PathVariable("category") String productCategory) {
@@ -83,9 +86,9 @@ public class ProductController {
 
     /**
      * 根据分类查找商品
-     * @param filterParams
-     * @param model
-     * @return
+     * @param filterParams 过滤参数
+     * @param model model
+     * @return 视图
      */
     @RequestMapping("/filter/{ByCriteria}")
     public String getProductsByFilter(@MatrixVariable(pathVar = "ByCriteria")Map<String, List<String>> filterParams, Model model) {
@@ -95,9 +98,9 @@ public class ProductController {
 
     /**
      * 商品详情
-     * @param productId
-     * @param model
-     * @return
+     * @param productId 商品id
+     * @param model model
+     * @return 视图
      */
     @RequestMapping("product")
     public String getProductById(@RequestParam("id") String productId, Model model) {
@@ -107,11 +110,11 @@ public class ProductController {
 
     /**
      * 根据分类和价格查找商品
-     * @param category
-     * @param filterParams
-     * @param manufacture
-     * @param model
-     * @return
+     * @param category 分类
+     * @param filterParams 过滤参数
+     * @param manufacture 制造商
+     * @param model model
+     * @return 视图
      */
     @RequestMapping("/{category}/{price}")
     public String filterProducts(
@@ -125,8 +128,8 @@ public class ProductController {
 
     /**
      * 新增商品
-     * @param model
-     * @return
+     * @param model model
+     * @return 视图
      */
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String getAddNewProductForm(Model model) {
@@ -137,9 +140,9 @@ public class ProductController {
 
     /**
      * 新增商品提交页面
-     * @param newProduct
-     * @param result
-     * @return
+     * @param newProduct 新增商品
+     * @param result 过滤结果
+     * @return 视图
      */
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String processAddNewProductForm(@ModelAttribute("newProduct") Product newProduct,
@@ -167,9 +170,9 @@ public class ProductController {
 
     /**
      * 未找到商品错误页面提示
-     * @param request
-     * @param exception
-     * @return
+     * @param request request
+     * @param exception exception
+     * @return 视图
      */
     @ExceptionHandler(ProductNotFoundException.class)
     public ModelAndView handleError(HttpServletRequest request, ProductNotFoundException exception) {

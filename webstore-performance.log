@@ -276,3 +276,5 @@
 2016-01-29 23:28:26INFO  SimpleUrlHandlerMapping:314 - Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'
 2016-01-29 23:28:26INFO  SimpleUrlHandlerMapping:314 - Mapped URL path [/static/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
 2016-01-29 23:28:26INFO  DispatcherServlet:503 - FrameworkServlet 'springMVC': initialization completed in 648 ms
+2016-01-29 23:35:31INFO  XmlWebApplicationContext:862 - Closing WebApplicationContext for namespace 'springMVC-servlet': startup date [Fri Jan 29 23:28:25 CST 2016]; parent: Root WebApplicationContext
+2016-01-29 23:35:31INFO  XmlWebApplicationContext:862 - Closing Root WebApplicationContext: startup date [Fri Jan 29 23:28:25 CST 2016]; root of context hierarchy
