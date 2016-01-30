@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
@@ -145,8 +146,13 @@ public class ProductController {
      * @return 视图
      */
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String processAddNewProductForm(@ModelAttribute("newProduct") Product newProduct,
+    public String processAddNewProductForm(@ModelAttribute("newProduct") @Valid Product newProduct,
                                            BindingResult result, HttpServletRequest request) {
+        // 字段校验
+        if (result.hasErrors()) {
+            return "addProduct";
+        }
+
         // 过滤不允许提交的字段
         String[] suppressedFields = result.getSuppressedFields();
         if (suppressedFields.length > 0) {
@@ -169,6 +175,15 @@ public class ProductController {
     }
 
     /**
+     * 无效PromoCode页面
+     * @return 视图
+     */
+    @RequestMapping(value = "/invalidPromoCode", method = RequestMethod.GET)
+    public String invalidPromoCode() {
+        return "invalidPromoCode";
+    }
+
+    /**
      * 未找到商品错误页面提示
      * @param request request
      * @param exception exception
@@ -183,4 +198,5 @@ public class ProductController {
         modelAndView.setViewName("productNotFound");
         return modelAndView;
     }
+
 }

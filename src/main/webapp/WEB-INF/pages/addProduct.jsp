@@ -36,6 +36,7 @@
 </section>
 <section class="container">
     <form:form modelAttribute="newProduct" class="form-horizontal" enctype="multipart/form-data">
+        <form:errors path="*" cssClass="alert alert-danger" element="div"/>
         <fieldset>
             <legend>新增商品</legend>
             <div class="form-group">
@@ -44,6 +45,7 @@
                 </label>
                 <div class="col-lg-4">
                     <form:input path="productId" id="productId" type="text" class="form-control"/>
+                    <form:errors path="productId" cssClass="text-danger"/>
                 </div>
             </div>
             <div class="form-group">
@@ -52,6 +54,7 @@
                 </label>
                 <div class="col-lg-4">
                     <form:input path="name" id="name" type="text" class="form-control"/>
+                    <form:errors path="name" cssClass="text-danger"/>
                 </div>
             </div>
             <div class="form-group">
@@ -60,6 +63,7 @@
                 </label>
                 <div class="col-lg-4">
                     <form:input path="unitPrice" id="unitPrice" type="text" class="form-control"/>
+                    <form:errors path="unitPrice" cssClass="text-danger"/>
                 </div>
             </div>
             <div class="form-group">

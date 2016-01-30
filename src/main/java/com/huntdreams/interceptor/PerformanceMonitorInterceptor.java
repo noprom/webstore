@@ -12,6 +12,7 @@ import java.util.Calendar;
 import java.util.logging.Logger;
 
 /**
+ * 性能监控拦截器
  * Created by noprom on 1/29/16.
  */
 public class PerformanceMonitorInterceptor implements HandlerInterceptor {
@@ -44,7 +45,7 @@ public class PerformanceMonitorInterceptor implements HandlerInterceptor {
 
     /**
      * 获得当前时间
-     * @return
+     * @return 当前时间
      */
     public String getCurrentTime() {
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss");
@@ -55,8 +56,8 @@ public class PerformanceMonitorInterceptor implements HandlerInterceptor {
 
     /**
      * 获得请求URL
-     * @param request
-     * @return
+     * @param request request
+     * @return 请求的URL
      */
     private String getURLPath(HttpServletRequest request) {
         String currentPath = request.getRequestURI();
