@@ -4,6 +4,7 @@ import com.huntdreams.domain.Cart;
 import com.huntdreams.domain.repository.CartRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -17,6 +18,11 @@ public class InMemoryCartRepository implements CartRepository {
      * 购物车列表
      */
     private Map<String, Cart> listOfCarts;
+
+
+    public InMemoryCartRepository() {
+        listOfCarts = new HashMap<String,Cart>();
+    }
 
     /**
      * 创建购物车
