@@ -91,6 +91,14 @@
                 </div>
             </div>
             <div class="form-group">
+                <label for="unitsInStock" class="control-label col-lg-2">
+                    <spring:message code="addProduct.form.unitsInStock.label"/>
+                </label>
+                <div class="col-lg-4">
+                    <form:input path="unitsInStock" id="unitsInStock" type="text" class="form-control"/>
+                </div>
+            </div>
+            <div class="form-group">
                 <label class="control-label col-lg-2" for="productImage">
                     <spring:message code="addProdcut.form.productImage.label"/></label>
                 <div class="col-lg-10">
