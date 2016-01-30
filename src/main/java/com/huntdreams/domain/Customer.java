@@ -1,13 +1,28 @@
 package com.huntdreams.domain;
 
+import java.io.Serializable;
+
 /**
  * 用户model
  * Created by noprom on 1/22/16.
  */
-public class Customer {
+public class Customer implements Serializable{
+
     private String customerId;//用户id
     private String name;//姓名
-    private String address;//地址
+    private Address address;//地址
+    private String phoneNumber;//电话
+
+    public Customer() {
+        super();
+        this.address = new Address();
+    }
+
+    public Customer(String customerId, String name) {
+        super();
+        this.customerId = customerId;
+        this.name = name;
+    }
 
     public String getCustomerId() {
         return customerId;
@@ -25,11 +40,45 @@ public class Customer {
         this.name = name;
     }
 
-    public String getAddress() {
+    public Address getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
+    public void setAddress(Address address) {
         this.address = address;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Customer other = (Customer) obj;
+        if (customerId == null) {
+            if (other.customerId != null)
+                return false;
+        } else if (!customerId.equals(other.customerId))
+            return false;
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result
+                + ((customerId == null) ? 0 : customerId.hashCode());
+        return result;
     }
 }

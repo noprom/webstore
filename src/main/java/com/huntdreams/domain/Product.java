@@ -71,6 +71,7 @@ public class Product {
                 + ((productId == null) ? 0 : productId.hashCode());
         return result;
     }
+
     @Override
     public String toString() {
         return "Product [productId=" + productId + ", name=" + name + "]";

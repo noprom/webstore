@@ -87,7 +87,7 @@ public class Address {
                 + ((zipCode == null) ? 0 : zipCode.hashCode());
         return result;
     }
-    
+
     @Override
     public String toString() {
         return "Address [doorNo = " + doorNo + ", streetName = " + streetName + ", areaName = " + areaName+
