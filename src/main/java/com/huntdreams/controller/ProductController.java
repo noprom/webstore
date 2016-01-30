@@ -4,7 +4,7 @@ import com.huntdreams.domain.Product;
 import com.huntdreams.exception.NoProductsFoundUnderCategoryException;
 import com.huntdreams.exception.ProductNotFoundException;
 import com.huntdreams.service.ProductService;
-import com.huntdreams.validator.UnitsInStockValidator;
+import com.huntdreams.validator.ProductValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -41,7 +41,9 @@ public class ProductController {
      * 不能添加价格大于10000且unit>99的商品
      */
     @Autowired
-    private UnitsInStockValidator unitsInStockValidator;
+    private ProductValidator productValidator;
+
+    // private UnitsInStockValidator unitsInStockValidator;
 
     /**
      * 新增商品的时候过滤不需要绑定的字段
@@ -53,7 +55,8 @@ public class ProductController {
         binder.setAllowedFields("productId", "name", "unitPrice", "description",
                 "manufacturer", "category", "unitsInStock", "productImage", "language");
         // 设置校验规则
-        binder.setValidator(unitsInStockValidator);
+        // binder.setValidator(unitsInStockValidator);
+        binder.setValidator(productValidator);
     }
 
     /**
