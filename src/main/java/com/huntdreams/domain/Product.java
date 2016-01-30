@@ -1,6 +1,7 @@
 package com.huntdreams.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.huntdreams.validator.ProductId;
 import org.springframework.web.multipart.MultipartFile;
 
 
@@ -15,6 +16,7 @@ import java.math.BigDecimal;
 @XmlRootElement
 public class Product {
     @Pattern(regexp = "P[0-9]+", message = "{Pattern.Product.productId.validation}")
+    @ProductId
     private String productId;
 
     @Size(min = 4, max = 50, message = "{Size.Product.name.validation}")

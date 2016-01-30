@@ -1,3 +1,5 @@
 .idea
 *.log
+webstore-performance.log
+webstore-Audit.log
 target
