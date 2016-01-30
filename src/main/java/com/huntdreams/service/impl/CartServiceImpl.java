@@ -4,11 +4,13 @@ import com.huntdreams.domain.Cart;
 import com.huntdreams.domain.repository.CartRepository;
 import com.huntdreams.service.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  * 购物车Service实现类
  * Created by noprom on 1/30/16.
  */
+@Service
 public class CartServiceImpl implements CartService {
 
     @Autowired
