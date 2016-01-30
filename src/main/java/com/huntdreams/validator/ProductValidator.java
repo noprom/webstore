@@ -2,7 +2,6 @@ package com.huntdreams.validator;
 
 import com.huntdreams.domain.Product;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
@@ -30,10 +29,20 @@ public class ProductValidator implements Validator {
         this.springValidators = springValidators;
     }
 
+    /**
+     * 校验Product这个类
+     * @param clazz
+     * @return
+     */
     public boolean supports(Class<?> clazz) {
         return Product.class.isAssignableFrom(clazz);
     }
 
+    /**
+     * 分别校验Sping Validator 和 Bean Validator
+     * @param target
+     * @param errors
+     */
     public void validate(Object target, Errors errors) {
         Set<ConstraintViolation<Object>> constraintViolations = beanValidator.validate(target);
         for (ConstraintViolation<Object> constraintViolation :constraintViolations) {

@@ -47,10 +47,17 @@
 		<property name="springValidators">
 			<set>
 				<ref bean="unitsInStockValidator"/>
+				<ref bean="ProductImageValidator"/>
 			</set>
 		</property>
 	</bean>
+	<!-- 剩余数量限制-->
 	<bean id="unitsInStockValidator" class="com.huntdreams.validator.UnitsInStockValidator"/>
+	<!-- 上传图片最大大小-->
+	<bean id="ProductImageValidator" class="com.huntdreams.validator.ProductImageValidator">
+		<!-- 最大上传大小2MB = 1024*1024*2-->
+		<property name="allowedSize" value="2097152"/>
+	</bean>
 
 	<!-- 模板文件配置-->
 	<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
