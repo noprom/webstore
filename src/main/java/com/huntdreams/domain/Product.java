@@ -80,9 +80,7 @@ public class Product {
         return productId;
     }
 
-    public void setproductId(String productId) {
-        this.productId = productId;
-    }
+
 
     public String getName() {
         return name;

@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletRequest;
  * Created by noprom on 1/30/16.
  */
 @Controller
-@RequestMapping(value = "/rest/cart")
+@RequestMapping(value = "rest/cart")
 public class CartRestController {
 
     @Autowired
@@ -32,7 +32,7 @@ public class CartRestController {
      * @param cart 购物车
      * @return 购物车
      */
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.POST)
     public @ResponseBody Cart create(@RequestBody Cart cart) {
         return cartService.create(cart);
     }
@@ -48,10 +48,22 @@ public class CartRestController {
     }
 
     /**
+     * 更新购物车
+     * @param cartId 购物车eid
+     * @param cart 购物车
+     */
+    @RequestMapping(value = "/{cartId}", method = RequestMethod.PUT)
+    @ResponseStatus(value = HttpStatus.NO_CONTENT)
+    public void update(@PathVariable(value = "cartId") String cartId,
+                       @RequestBody Cart cart) {
+        cartService.update(cartId, cart);
+    }
+
+    /**
      * 删除一个购物车
      * @param cartId 购物车id
      */
-    @RequestMapping(value = "/{cartId}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/{cartId}", method = RequestMethod.DELETE)
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void delete(@PathVariable(value = "cartId") String cartId) {
         cartService.delete(cartId);
@@ -64,7 +76,7 @@ public class CartRestController {
      */
     @RequestMapping(value = "/add/{productId}", method = RequestMethod.PUT)
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
-    public void addItem(@PathVariable(value = "productId") String productId, HttpServletRequest request) {
+    public void addItem(@PathVariable String productId, HttpServletRequest request) {
         String sessionId = request.getSession().getId();
         Cart cart = cartService.read(sessionId);
         if (cart == null) {
