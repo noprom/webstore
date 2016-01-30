@@ -10,12 +10,12 @@ public class Customer implements Serializable{
 
     private String customerId;//用户id
     private String name;//姓名
-    private Address address;//地址
+    private Address shippingAddress;//地址
     private String phoneNumber;//电话
 
     public Customer() {
         super();
-        this.address = new Address();
+        this.shippingAddress = new Address();
     }
 
     public Customer(String customerId, String name) {
@@ -40,12 +40,12 @@ public class Customer implements Serializable{
         this.name = name;
     }
 
-    public Address getAddress() {
-        return address;
+    public Address getShippingAddress() {
+        return shippingAddress;
     }
 
-    public void setAddress(Address address) {
-        this.address = address;
+    public void setShippingAddress(Address shippingAddress) {
+        this.shippingAddress = shippingAddress;
     }
 
     public String getPhoneNumber() {
