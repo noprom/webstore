@@ -15,10 +15,20 @@ import java.math.BigDecimal;
 @Component
 public class UnitsInStockValidator implements Validator {
 
+    /**
+     * 校验Product这个类
+     * @param aClass class
+     * @return 是否校验
+     */
     public boolean supports(Class<?> aClass) {
         return Product.class.isAssignableFrom(aClass);
     }
 
+    /**
+     * 校验规则
+     * @param o 商品
+     * @param errors 错误
+     */
     public void validate(Object o, Errors errors) {
         Product product = (Product) o;
         if (product.getUnitPrice() != null
