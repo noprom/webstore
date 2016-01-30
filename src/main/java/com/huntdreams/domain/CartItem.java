@@ -3,7 +3,7 @@ package com.huntdreams.domain;
 import java.math.BigDecimal;
 
 /**
- * 购物车类
+ * 购物车项类
  * Created by noprom on 1/30/16.
  */
 public class CartItem {
@@ -61,9 +61,13 @@ public class CartItem {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj || obj == null || getClass() != obj.getClass()) {
+        if (this == obj) {
             return true;
         }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+
         CartItem other = (CartItem) obj;
         if (product == null) {
             if (other.product != null) {
