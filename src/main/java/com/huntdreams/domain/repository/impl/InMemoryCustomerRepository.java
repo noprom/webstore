@@ -17,12 +17,12 @@ public class InMemoryCustomerRepository implements CustomerRepository{
 
     public InMemoryCustomerRepository() {
         Customer noprom = new Customer();
-        noprom.setAddress("Bei Jing");
+//        noprom.setAddress("Bei Jing");
         noprom.setName("noprom");
         noprom.setCustomerId("cus001");
 
         Customer beitong = new Customer();
-        beitong.setAddress("Chong Qing");
+//        beitong.setAddress("Chong Qing");
         beitong.setCustomerId("cus002");
         beitong.setName("Bei Tong");
         listOfCustomers.add(noprom);

@@ -40,14 +40,6 @@
         <form:input id="customerId" path="customerId" type="text" class="form-control" />
       </div>
     </div>
-    <!--  Similarly, add input tags for the remaining fields of the
-    customer domain object. I have skipped those tags here -->
-    <div class="form-group">
-      <label class="control-label col-lg-2 col-lg-2" for="customerId" />Customer Id</label>
-      <div class="col-lg-10">
-        <form:input id="customerId" path="customerId" type="text" class="form-control" />
-      </div>
-    </div>
     <div class="form-group">
       <label class="control-label col-lg-2 col-lg-2" for="name" />Name</label>
       <div class="col-lg-10">
@@ -55,9 +47,39 @@
       </div>
     </div>
     <div class="form-group">
-      <label class="control-label col-lg-2 col-lg-2" for="customerId" />ShippingAddress</label>
+      <label class="control-label col-lg-2" for="doorNo">Door No</label>
       <div class="col-lg-10">
-        <form:input id="shippingAddress" path="shippingAddress" type="text" class="form-control" />
+        <form:input id="doorNo" path="shippingAddress.doorNo" type="text" class="form-control" />
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-lg-2" for="streetName">StreetName</label>
+      <div class="col-lg-10">
+        <form:input id="streetName" path="shippingAddress.streetName" type="text" class="form-control" />
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-lg-2" for="areaName">AreaName</label>
+      <div class="col-lg-10">
+        <form:input id="areaName" path="shippingAddress.areaName" type="text" class="form-control" />
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-lg-2" for="state">State</label>
+      <div class="col-lg-10">
+        <form:input id="state" path="shippingAddress.state" type="text" class="form-control" />
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-lg-2" for="country">Country</label>
+      <div class="col-lg-10">
+        <form:input id="country" path="shippingAddress.country" type="text" class="form-control" />
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-lg-2" for="zipCode">ZipCode</label>
+      <div class="col-lg-10">
+        <form:input id="zipCode" path="shippingAddress.zipCode" type="text" class="form-control" />
       </div>
     </div>
     <div class="form-group">
