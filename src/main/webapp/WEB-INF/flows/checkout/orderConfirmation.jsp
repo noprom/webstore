@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!DOCTYPE html>
@@ -43,7 +44,7 @@
           <address>
             <strong>Shipping Address</strong> <br>
               ${order.shippingDetail.name}<br>
-              ${order.shippingDetail.shippingDate}<br>
+              <fmt:formatDate type="date" value="${order.shippingDetail.shippingDate}" /><br>
               ${order.shippingDetail.shippingAddress.doorNo}<br>
               ${order.shippingDetail.shippingAddress.streetName}<br>
               ${order.shippingDetail.shippingAddress.areaName}<br>
