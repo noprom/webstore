@@ -36,7 +36,6 @@
         <put-attribute name="content" value="/WEB-INF/pages/customers.jsp" />
     </definition>
 
-    
     <!--similarly, add definition tags for every logical view name. I have
     skipped this here, but you can find the full definition file in the
     code bundle of this book.-->

@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:mvc="http://www.springframework.org/schema/mvc"
-	xmlns:webflow-config="http://www.springframework.org/schema/webflow-config"
-	xsi:schemaLocation="http://www.springframework.org/schema/aop
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:tx="http://www.springframework.org/schema/tx"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:mvc="http://www.springframework.org/schema/mvc"
+	   xmlns:webflow-config="http://www.springframework.org/schema/webflow-config"
+	   xsi:schemaLocation="http://www.springframework.org/schema/aop
 		http://www.springframework.org/schema/aop/spring-aop.xsd
 		http://www.springframework.org/schema/webflow-config
    		http://www.springframework.org/schema/webflow-config/spring-webflow-config-2.4.xsd
@@ -157,4 +159,18 @@
 	<webflow-config:flow-registry id="flowRegistry" base-path="/WEB-INF/flows">
 		<webflow-config:flow-location path="/checkout/checkout-flow.xml" id="checkout"/>
 	</webflow-config:flow-registry>
+
+	<!-- Apache Tiles 模板引擎配置-->
+	<!--<bean id="tilesViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">-->
+		<!--<property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView" />-->
+		<!--<property name="order" value="-2" />-->
+	<!--</bean>-->
+
+	<!--<bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">-->
+		<!--<property name="definitions">-->
+			<!--<list>-->
+				<!--<value>/WEB-INF/tiles/definitions/tile-definition.xml</value>-->
+			<!--</list>-->
+		<!--</property>-->
+	<!--</bean>-->
 </beans>
