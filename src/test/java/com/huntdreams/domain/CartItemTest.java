@@ -1,10 +1,10 @@
-import com.huntdreams.domain.CartItem;
-import java.math.BigDecimal;
+package com.huntdreams.domain;
 
-import com.huntdreams.domain.Product;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.math.BigDecimal;
 
 /**
  * 购物车项测试类

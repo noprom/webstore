@@ -12,6 +12,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <junit.version>4.11</junit.version>
     <org.springframework.version>4.1.4.RELEASE</org.springframework.version>
+    <org.springframework.test.version>4.1.4.RELEASE</org.springframework.test.version>
     <druid.version>0.2.6</druid.version>
   </properties>
 
@@ -289,6 +290,11 @@
       <version>2.4.2.RELEASE</version>
     </dependency>
 
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-test</artifactId>
+      <version>${org.springframework.test.version}</version>
+    </dependency>
     <!-- Spring End -->
 
     <dependency>
