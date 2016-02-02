@@ -19,6 +19,7 @@
         </environment>
     </environments>
     <mappers>
-        <mapper resource="com/mybatis3/mappers/StudentMapper.xml"/>
+        <!--<mapper resource="com/mybatis3/mappers/StudentMapper.xml"/>-->
+        <mapper resource="mybatis/mappers/StudentMapper.xml"/>
     </mappers>
 </configuration>
