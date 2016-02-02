@@ -34,11 +34,11 @@ public class ProductValidatorTest {
         ValidationUtils.invokeValidator(productValidator, product, bindException);
         //Assert
         Assert.assertEquals(1, bindException.getErrorCount());
-        Assert.assertTrue(bindException.getLocalizedMessage().contains("Unit price is Invalid. It cannot be empty."));
+        Assert.assertTrue(bindException.getLocalizedMessage().contains("价格不能为空"));
     }
 
     @Test
-    public void product_with_existing_productId_invalid() {
+    public void product_with_existing_produvalidatorctId_invalid() {
         //Arrange
         Product product = new Product("P1234","iPhone 5s", new BigDecimal(500));
         product.setCategory("Tablet");
@@ -47,11 +47,11 @@ public class ProductValidatorTest {
         ValidationUtils.invokeValidator(productValidator, product, bindException);
         //Assert
         Assert.assertEquals(1, bindException.getErrorCount());
-        Assert.assertTrue(bindException.getLocalizedMessage().contains("A product already exists with this product id."));
+        Assert.assertTrue(bindException.getLocalizedMessage().contains("已经存在该商品"));
     }
 
     @Test
-    public void a_valid_product_should_not_get_any_error_during_validation() {
+    public void a_valid_productc_should_not_get_any_error_during_validation() {
         //Arrange
         Product product = new Product("P9876","iPhone 5s", new BigDecimal(500));
         product.setCategory("Tablet");
