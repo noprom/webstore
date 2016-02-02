@@ -13,7 +13,7 @@ public class CartItem implements Serializable {
     private int quantity;       // 数量
     private BigDecimal totalPrice;  // 总价
     public CartItem() {
-
+        this.quantity = 1;
     }
 
     public CartItem(Product product) {
